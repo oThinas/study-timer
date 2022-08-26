@@ -31,7 +31,9 @@ export function Form() {
           autoComplete="off"
         />
       </div>
-      <Button />
+      <Button>
+        Adicionar
+      </Button>
     </form>
   )
 }
