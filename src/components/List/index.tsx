@@ -1,4 +1,4 @@
-// Functional Component
+import style from './List.module.scss'
 
 export function List() {
   const tasks = [
@@ -17,11 +17,11 @@ export function List() {
   ]
   
   return (
-    <aside>
+    <aside className={style.listTasks}>
       <h2>Tarefas do dia</h2>
       <ul>
         {tasks.map((task, index) => (
-          <li key={index}>
+          <li key={index} className={style.task}>
             <h3>{task.name}</h3>
             <span>{task.time}</span>
           </li>
