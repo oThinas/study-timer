@@ -2,13 +2,15 @@ import { ReactNode } from 'react'
 import style from './Button.module.scss'
 
 interface ButtonProps {
+  type?: 'button' | 'submit' | 'reset' | undefined
   children: ReactNode
 }
 
-export function Button(props: ButtonProps) {
+export function Button({type = 'button', children}: ButtonProps) {
+  
   return(
-    <button className={style.button}>
-      {props.children}
+    <button type={type} className={style.button}>
+      {children}
     </button>
   )
 }

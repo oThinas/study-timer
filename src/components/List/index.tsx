@@ -1,27 +1,19 @@
-import style from './List.module.scss'
 import { Task } from './Task'
 
-export function List() {
-  const tasks = [
-    {
-      name: 'React',
-      time: '02:00:00'
-    },
-    {
-      name: 'TypeScript',
-      time: '01:00:00'
-    },
-    {
-      name: 'JavaScript',
-      time: '00:30:00'
-    }
-  ]
-  
+import { ITask } from '../../types/task'
+
+import style from './List.module.scss'
+
+interface ListProps {
+  tasks: ITask[]
+}
+
+export function List(props: ListProps) {
   return (
     <aside className={style.listTasks}>
       <h2>Tarefas do dia</h2>
       <ul>
-        {tasks.map((task, index) => (
+        {props.tasks.map((task, index) => (
           <Task
             key={index}
             /* name={task.name}
