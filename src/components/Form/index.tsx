@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { v4 as uuid } from 'uuid';
 
 import { Button } from "../Button";
 
@@ -12,7 +13,7 @@ interface FormProps {
 
 export function Form(props: FormProps) {
 
-  const [task, setTask] = useState(
+  const [newTaskInfos, setNewTaskInfos] = useState(
     {
       name: "",
       time: "00:00:00"
@@ -21,7 +22,21 @@ export function Form(props: FormProps) {
 
   function handleCreateTask(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    props.setTasks((previusTasks) => [...previusTasks, {...task}])
+    props.setTasks((previousTasks) =>
+      [
+        ...previousTasks, 
+        {
+          ...newTaskInfos,
+          selected: false,
+          done: false,
+          id: uuid()
+        }
+      ]
+    )
+    setNewTaskInfos({
+      name: '',
+      time: '00:00:00'
+    })
   }
   
   return(
@@ -37,8 +52,8 @@ export function Form(props: FormProps) {
           placeholder="O que você quer estudar?"
           required
           autoComplete="off"
-          value={task.name}
-          onChange={event => setTask({...task, name: event.target.value})}
+          value={newTaskInfos.name}
+          onChange={event => setNewTaskInfos({...newTaskInfos, name: event.target.value})}
         />
       </div>
       <div className={style.inputContainer}>
@@ -52,8 +67,8 @@ export function Form(props: FormProps) {
           name="time"
           required
           autoComplete="off"
-          value={task.time}
-          onChange={event => setTask({...task, time: event.target.value})}
+          value={newTaskInfos.time}
+          onChange={event => setNewTaskInfos({...newTaskInfos, time: event.target.value})}
         />
       </div>
       <Button type="submit">
