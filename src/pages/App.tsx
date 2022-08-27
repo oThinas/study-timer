@@ -11,6 +11,7 @@ import style from  '../styles/pages.module.scss'
 export function App() {
   const [tasks, setTasks] = useState<ITask[]>([])
   const [selected, setSelected] = useState<ITask>()
+  const [isTimerRunning, setIsTimerRunning] = useState(false)
   
   function handleSelectTask(selectedTask: ITask) {
     setSelected(selectedTask)
@@ -29,6 +30,7 @@ export function App() {
   }
 
   function handleFinishTask() {
+    setIsTimerRunning(false)
     if (selected) {
       setSelected(undefined)
       setTasks(tasks.map(task => {
@@ -46,14 +48,19 @@ export function App() {
   
   return (
     <div className={style.main}>
-      <Form setTasks={setTasks} />
+      <Form 
+        setTasks={setTasks}
+      />
       <List 
         tasks={tasks}
         selectedTask={handleSelectTask}
+        isTimerRunning={isTimerRunning}
       />
       <Timer
         selectedTask={selected}
         endTimer={handleFinishTask}
+        setIsTimerRunning={setIsTimerRunning}
+        isTimerRunning={isTimerRunning}
       />
     </div>
   );

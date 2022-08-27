@@ -73,7 +73,9 @@ export function Form(props: FormProps) {
           onChange={event => setNewTaskInfos({...newTaskInfos, time: event.target.value})}
         />
       </div>
-      <Button type="submit">
+      <Button
+        type="submit"
+      >
         Adicionar
       </Button>
     </form>

@@ -6,7 +6,8 @@ import style from './List.module.scss'
 
 interface ListProps {
   tasks: ITask[],
-  selectedTask: (selectedTask: ITask) => void 
+  selectedTask: (selectedTask: ITask) => void,
+  isTimerRunning: boolean
 }
 
 export function List(props: ListProps) {
@@ -19,6 +20,7 @@ export function List(props: ListProps) {
             key={task.id}
             task={task}
             selected={props.selectedTask}
+            isTimerRunning={props.isTimerRunning}
           />
         ))}
       </ul>

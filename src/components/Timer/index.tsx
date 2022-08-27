@@ -9,7 +9,9 @@ import style from './Timer.module.scss'
 
 interface TimerProps {
   selectedTask: ITask | undefined,
-  endTimer: () => void
+  endTimer: () => void,
+  setIsTimerRunning: React.Dispatch<React.SetStateAction<boolean>>,
+  isTimerRunning: boolean
 }
 
 export function Timer(props: TimerProps) {
@@ -32,6 +34,8 @@ export function Timer(props: TimerProps) {
   const [secondsTens, secondsUnits] = String(seconds)
 
   function handleStartTimer(timer: number = 0) {
+    if (timer !== 0)
+      props.setIsTimerRunning(true)
     setTimeout(() => {
       if (timer > 0) {
         setTime(timer - 1)
@@ -54,7 +58,10 @@ export function Timer(props: TimerProps) {
         <span className={style.digits}>{(!seconds || seconds < 10) ? '0' : secondsTens}</span>
         <span className={style.digits}>{!seconds ? '0' : (seconds < 10 ? seconds : secondsUnits)}</span>
       </div>
-      <Button onClick={() => handleStartTimer(time)}>
+      <Button
+        onClick={() => handleStartTimer(time)}
+        isTimerRunning={props.isTimerRunning}
+      >
         Iniciar
       </Button>
     </div>

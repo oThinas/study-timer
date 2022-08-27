@@ -9,7 +9,7 @@
   padding: 1rem;
   width: 24.375rem;
 
-  &:active {
+  &:enale:active {
     background-color: #7ca6b7;
     box-shadow: 2px 2px 4px #0000009f inset;
   }
@@ -22,3 +22,6 @@
   }
 }
 
+.buttonBlocked {
+  cursor: not-allowed;
+}
