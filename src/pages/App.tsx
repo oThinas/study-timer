@@ -27,6 +27,22 @@ export function App() {
       selected: task.id === selected?.id ? true : false
     }))) */ 
   }
+
+  function handleFinishTask() {
+    if (selected) {
+      setSelected(undefined)
+      setTasks(tasks.map(task => {
+        if (task.id === selected.id) {
+          return {
+            ...task,
+            selected: false,
+            done: true
+          }
+        }
+        return task
+      }))
+    }
+  }
   
   return (
     <div className={style.main}>
@@ -35,7 +51,10 @@ export function App() {
         tasks={tasks}
         selectedTask={handleSelectTask}
       />
-      <Timer />
+      <Timer
+        selectedTask={selected}
+        endTimer={handleFinishTask}
+      />
     </div>
   );
 }

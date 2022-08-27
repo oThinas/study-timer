@@ -43,13 +43,14 @@ export function Form(props: FormProps) {
     <form className={style.newTask} onSubmit={handleCreateTask}>
       <div className={style.inputContainer}>
         <label htmlFor="task">
-          Adicione um novo estudo
+          Adicione um novo chamado
         </label>
         <input
           type="text"
           name="task"
           id="task"
-          placeholder="O que você quer estudar?"
+          placeholder="Insira o código do chamado"
+          title=""
           required
           autoComplete="off"
           value={newTaskInfos.name}
@@ -65,6 +66,7 @@ export function Form(props: FormProps) {
           max="23:59:59"
           id="time"
           name="time"
+          title=""
           required
           autoComplete="off"
           value={newTaskInfos.time}
