@@ -43,13 +43,13 @@ export function Form(props: FormProps) {
     <form className={style.newTask} onSubmit={handleCreateTask}>
       <div className={style.inputContainer}>
         <label htmlFor="task">
-          Adicione um novo chamado
+          Adicione uma nova tarefa
         </label>
         <input
           type="text"
           name="task"
           id="task"
-          placeholder="Insira o código do chamado"
+          placeholder="Insira o nome"
           title=""
           required
           autoComplete="off"
