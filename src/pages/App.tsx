@@ -32,8 +32,7 @@ export function App() {
   function handleFinishTask() {
     setIsTimerRunning(false)
     if (selected) {
-      setSelected(undefined)
-      setTasks(tasks.map(task => {
+      setTasks(previousTasks => previousTasks.map(task => {
         if (task.id === selected.id) {
           return {
             ...task,
@@ -45,7 +44,7 @@ export function App() {
       }))
     }
   }
-  
+
   return (
     <div className={style.main}>
       <Form 
