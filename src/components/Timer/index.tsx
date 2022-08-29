@@ -41,8 +41,6 @@ export function Timer(props: TimerProps) {
         setTime(timer - 1)
         return handleStartTimer(timer - 1)
       }
-      console.log("Chamando o endTimer()");
-      
       props.endTimer()
     }, 1000)
   }
