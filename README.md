@@ -1,6 +1,6 @@
 <div id="start" />
 
-# Task timer
+# Task Timer
 
 <img src="https://img.shields.io/badge/status-done-green" alt="Status do projeto: pronto" />
 
@@ -11,7 +11,7 @@
 
 ## ☕ Usando Task Timer
 
-Para usar Task Timer, acesse o [link](https://study-timer-blush.vercel.app/).
+Para usar Task Timer, acesse o [link](https://task-timer-blush.vercel.app/).
 
 ## 📫 Contribuindo para Task Timer
 
